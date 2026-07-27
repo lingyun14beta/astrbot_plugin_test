@@ -119,6 +119,27 @@
     }
   },
 
+  "custom_headers": {
+    "description": "自定义请求头（dict 类型 + template_schema）",
+    "type": "dict",
+    "default": {},
+    "hint": "添加自定义 HTTP 请求头，可用 template_schema 快速编辑",
+    "template_schema": {
+      "Content-Type": {
+        "name": "Content-Type",
+        "description": "内容类型",
+        "type": "string",
+        "default": "application/json"
+      },
+      "Authorization": {
+        "name": "Authorization",
+        "description": "认证令牌",
+        "type": "string",
+        "default": ""
+      }
+    }
+  },
+
   "scheduled_tasks": {
     "description": "定时任务（template_list 类型）",
     "type": "template_list",
