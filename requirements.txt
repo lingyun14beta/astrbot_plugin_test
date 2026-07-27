@@ -1,0 +1,2 @@
+# 如果你的插件需要依赖第三方库，请在此列出。
+# 完整格式可以参考 pip 官方文档：https://pip.pypa.io/en/stable/reference/requirements-file-format/

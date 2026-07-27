@@ -1,0 +1,191 @@
+{
+  "api_key": {
+    "description": "API 密钥（string 类型 + obvious_hint）",
+    "type": "string",
+    "obvious_hint": true,
+    "hint": "在此填入你的 API Key",
+    "default": ""
+  },
+  "prompt_template": {
+    "description": "提示词模板（text 类型，显示为大文本框）",
+    "type": "text",
+    "hint": "支持使用 {keyword} 作为占位符",
+    "default": "请根据以下关键词生成内容：{keyword}"
+  },
+  "max_retries": {
+    "description": "最大重试次数（int 类型 + slider）",
+    "type": "int",
+    "default": 3,
+    "hint": "API 调用失败时的最大重试次数",
+    "slider": {
+      "min": 1,
+      "max": 10,
+      "step": 1
+    }
+  },
+  "temperature": {
+    "description": "温度参数（float 类型 + slider）",
+    "type": "float",
+    "default": 0.7,
+    "hint": "控制输出的随机性，范围 0-2",
+    "slider": {
+      "min": 0,
+      "max": 2,
+      "step": 0.1
+    }
+  },
+  "enable_debug": {
+    "description": "启用调试模式（bool 类型 + obvious_hint）",
+    "type": "bool",
+    "default": false,
+    "hint": "开启后会在日志中输出详细调试信息"
+  },
+  "output_mode": {
+    "description": "输出模式（string 类型 + options 下拉选项）",
+    "type": "string",
+    "default": "text",
+    "options": ["text", "image", "mixed"],
+    "hint": "选择插件的输出方式"
+  },
+  "llm_provider": {
+    "description": "LLM 提供商（_special: select_provider）",
+    "type": "string",
+    "default": "",
+    "hint": "选择一个已配置的 LLM 提供商",
+    "_special": "select_provider"
+  },
+  "bot_persona": {
+    "description": "Bot 人设（_special: select_persona）",
+    "type": "string",
+    "default": "",
+    "hint": "选择一个已配置的人设",
+    "_special": "select_persona"
+  },
+  "knowledge_bases": {
+    "description": "知识库（_special: select_knowledgebase，list 类型）",
+    "type": "list",
+    "default": [],
+    "hint": "选择要使用的知识库（支持多选）",
+    "_special": "select_knowledgebase"
+  },
+  "internal_config": {
+    "description": "内部配置（invisible 隐藏配置项）",
+    "type": "string",
+    "default": "secret_value",
+    "invisible": true
+  },
+  "custom_script": {
+    "description": "自定义脚本（editor_mode 代码编辑器模式）",
+    "type": "text",
+    "default": "{}",
+    "hint": "输入自定义配置",
+    "editor_mode": true,
+    "editor_language": "json",
+    "editor_theme": "vs-dark"
+  },
+  "whitelist": {
+    "description": "用户白名单（list 类型）",
+    "type": "list",
+    "default": [],
+    "hint": "仅白名单中的用户可以使用此插件"
+  },
+  "uploaded_files": {
+    "description": "上传文件（file 类型）",
+    "type": "file",
+    "default": [],
+    "hint": "上传插件需要的文件",
+    "file_types": ["pdf", "docx", "txt", "png", "jpg"]
+  },
+  "nested_config": {
+    "description": "嵌套配置（object 类型 + items）",
+    "type": "object",
+    "hint": "包含子配置项的嵌套对象",
+    "items": {
+      "host": {
+        "description": "服务器地址",
+        "type": "string",
+        "default": "localhost"
+      },
+      "port": {
+        "description": "端口号",
+        "type": "int",
+        "default": 8080
+      },
+      "use_ssl": {
+        "description": "启用 SSL",
+        "type": "bool",
+        "default": false
+      }
+    }
+  },
+  "custom_headers": {
+    "description": "自定义请求头（dict 类型 + template_schema）",
+    "type": "dict",
+    "default": {},
+    "hint": "添加自定义 HTTP 请求头，可用 template_schema 快速编辑",
+    "template_schema": {
+      "Content-Type": {
+        "name": "Content-Type",
+        "description": "内容类型",
+        "type": "string",
+        "default": "application/json"
+      },
+      "Authorization": {
+        "name": "Authorization",
+        "description": "认证令牌",
+        "type": "string",
+        "default": ""
+      }
+    }
+  },
+  "scheduled_tasks": {
+    "description": "定时任务（template_list 类型）",
+    "type": "template_list",
+    "hint": "配置定时执行的任务列表",
+    "templates": {
+      "cron_task": {
+        "name": "Cron 定时任务",
+        "hint": "使用 cron 表达式设置定时触发",
+        "display_item": "cron_expression",
+        "items": {
+          "cron_expression": {
+            "description": "Cron 表达式",
+            "type": "string",
+            "default": "0 0 * * *"
+          },
+          "task_prompt": {
+            "description": "任务提示词",
+            "type": "text",
+            "default": ""
+          },
+          "enabled": {
+            "description": "是否启用",
+            "type": "bool",
+            "default": true
+          }
+        }
+      },
+      "interval_task": {
+        "name": "间隔任务",
+        "hint": "按固定间隔触发任务",
+        "items": {
+          "interval_seconds": {
+            "description": "间隔秒数",
+            "type": "int",
+            "default": 3600
+          },
+          "task_prompt": {
+            "description": "任务提示词",
+            "type": "text",
+            "default": ""
+          },
+          "enabled": {
+            "description": "是否启用",
+            "type": "bool",
+            "default": false
+          }
+        }
+      }
+    }
+  }
+}
