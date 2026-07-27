@@ -85,8 +85,9 @@
     "editor_theme": "vs-dark"
   },
   "whitelist": {
-    "description": "用户白名单（list 类型）",
+    "description": "用户白名单（list 类型 + items 约束元素类型）",
     "type": "list",
+    "items": {"type": "string"},
     "default": [],
     "hint": "仅白名单中的用户可以使用此插件"
   },
@@ -130,14 +131,24 @@
       "Content-Type": {
         "name": "Content-Type",
         "description": "内容类型",
+        "hint": "如 application/json",
         "type": "string",
         "default": "application/json"
       },
       "Authorization": {
         "name": "Authorization",
         "description": "认证令牌",
+        "hint": "Bearer token 或其他认证信息",
         "type": "string",
         "default": ""
+      },
+      "timeout": {
+        "name": "请求超时",
+        "description": "超时时间（秒）",
+        "hint": "范围 1-120 秒",
+        "type": "int",
+        "default": 30,
+        "slider": {"min": 1, "max": 120, "step": 1}
       }
     }
   },
