@@ -41,10 +41,11 @@
     "hint": "开启后会在日志中输出详细调试信息"
   },
   "output_mode": {
-    "description": "输出模式（string 类型 + options 下拉选项）",
+    "description": "输出模式（string 类型 + options 下拉 + labels）",
     "type": "string",
     "default": "text",
     "options": ["text", "image", "mixed"],
+    "labels": ["纯文本", "图片", "混合输出"],
     "hint": "选择插件的输出方式"
   },
   "llm_provider": {
@@ -122,6 +123,7 @@
   "custom_headers": {
     "description": "自定义请求头（dict 类型 + template_schema）",
     "type": "dict",
+    "items": {},
     "default": {},
     "hint": "添加自定义 HTTP 请求头，可用 template_schema 快速编辑",
     "template_schema": {
@@ -149,6 +151,7 @@
         "name": "Cron 定时任务",
         "hint": "使用 cron 表达式设置定时触发",
         "display_item": "cron_expression",
+        "hide_hint_in_list": true,
         "items": {
           "cron_expression": {
             "description": "Cron 表达式",
