@@ -75,6 +75,35 @@
     "default": "secret_value",
     "invisible": true
   },
+  "adv_intro": {
+    "description": "高级功能说明（collapsed 默认折叠）",
+    "type": "text",
+    "default": "以下为高级配置，按需开启。",
+    "collapsed": true,
+    "hint": "这是一个默认折叠的说明区域，展开后可见下方子配置"
+  },
+  "adv_feature_enabled": {
+    "description": "启用高级功能（condition 条件显示）",
+    "type": "bool",
+    "default": false,
+    "collapsed": true,
+    "condition": {
+      "adv_feature_enabled": false
+    },
+    "hint": "开启后，下方高级选项会展开"
+  },
+  "adv_mode": {
+    "description": "高级模式（condition 条件显示）",
+    "type": "string",
+    "options": ["fast", "quality"],
+    "labels": ["快速模式", "质量模式"],
+    "default": "fast",
+    "collapsed": true,
+    "condition": {
+      "adv_feature_enabled": true
+    },
+    "hint": "仅在开启高级功能后可见"
+  },
   "custom_script": {
     "description": "自定义脚本（editor_mode 代码编辑器模式）",
     "type": "text",
@@ -83,6 +112,14 @@
     "editor_mode": true,
     "editor_language": "json",
     "editor_theme": "vs-dark"
+  },
+  "system_prompt": {
+    "description": "系统提示词（editor_language markdown）",
+    "type": "text",
+    "default": "# 系统提示词\n\n请在此编写...",
+    "hint": "使用 Markdown 编辑器编写提示词",
+    "editor_mode": true,
+    "editor_language": "markdown"
   },
   "whitelist": {
     "description": "用户白名单（list 类型 + items 约束元素类型）",
