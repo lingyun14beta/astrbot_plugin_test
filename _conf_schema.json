@@ -83,13 +83,9 @@
     "hint": "这是一个默认折叠的说明区域，展开后可见下方子配置"
   },
   "adv_feature_enabled": {
-    "description": "启用高级功能（condition 条件显示）",
+    "description": "启用高级功能",
     "type": "bool",
     "default": false,
-    "collapsed": true,
-    "condition": {
-      "adv_feature_enabled": false
-    },
     "hint": "开启后，下方高级选项会展开"
   },
   "adv_mode": {
