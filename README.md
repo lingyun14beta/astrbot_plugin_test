@@ -1,14 +1,23 @@
-# astrbot-plugin-helloworld
+# astrbot_plugin_test
 
-AstrBot 插件模板 / A template plugin for AstrBot plugin feature
+AstrBot 插件。
 
-> [!NOTE]
-> This repo is just a template of [AstrBot](https://github.com/AstrBotDevs/AstrBot) Plugin.
-> 
-> [AstrBot](https://github.com/AstrBotDevs/AstrBot) is an agentic assistant for both personal and group conversations. It can be deployed across dozens of mainstream instant messaging platforms, including QQ, Telegram, Feishu, DingTalk, Slack, LINE, Discord, Matrix, etc. In addition, it provides a reliable and extensible conversational AI infrastructure for individuals, developers, and teams. Whether you need a personal AI companion, an intelligent customer support agent, an automation assistant, or an enterprise knowledge base, AstrBot enables you to quickly build AI applications directly within your existing messaging workflows.
+## 安装
 
-# Supports
+将本插件放入 AstrBot 的 `data/plugins/` 目录下。
 
-- [AstrBot Repo](https://github.com/AstrBotDevs/AstrBot)
-- [AstrBot Plugin Development Docs (Chinese)](https://docs.astrbot.app/dev/star/plugin-new.html)
-- [AstrBot Plugin Development Docs (English)](https://docs.astrbot.app/en/dev/star/plugin-new.html)
+## 配置
+
+通过 AstrBot WebUI 的插件配置面板进行配置。
+
+## 目录结构
+
+参考 [AstrBot 插件开发文档](https://docs.astrbot.app/dev/star/plugin-new.html)：
+
+```
+astrbot_plugin_test/
+  main.py          # 插件入口
+  metadata.yaml    # 插件元数据
+  _conf_schema.json # 配置 Schema（可选）
+  requirements.txt  # 依赖列表（可选）
+```
