@@ -121,12 +121,14 @@
     "editor_mode": true,
     "editor_language": "markdown"
   },
-  "whitelist": {
-    "description": "用户白名单（list 类型 + items 约束元素类型）",
+  "supported_platforms": {
+    "description": "支持的平台（list 多选 + render_type checkbox）",
     "type": "list",
     "items": {"type": "string"},
-    "default": [],
-    "hint": "仅白名单中的用户可以使用此插件"
+    "options": ["aiocqhttp", "telegram", "wecom", "lark", "discord"],
+    "labels": ["QQ", "Telegram", "企业微信", "飞书", "Discord"],
+    "default": ["aiocqhttp"],
+    "hint": "选择插件启用的平台（多选）"
   },
   "uploaded_files": {
     "description": "上传文件（file 类型）",
